@@ -77,9 +77,8 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   {showResume && (
                     <Button
                       onClick={() =>
-                        window.open("mailto:as22cq@fsu.edu", "_blank")
-                      }
-                    >
+                        router.push("/resume")}
+                        classes="first:ml-1">
                       Resume
                     </Button>
                   )}
