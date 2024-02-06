@@ -3,21 +3,9 @@ import Socials from "../Socials";
 import Link from "next/link";
 import Button from "../Button";
 
-const CallButton = () => {
-  const phoneNumber = '4485006857'; 
-
-  const handleCallButtonClick = () => {
-    window.location.href = `tel:${phoneNumber}`;
-  };
-
-  return (
-    <Button type="primary" onClick={handleCallButtonClick}>
-      Schedule a call
-    </Button>
-  );
-};
-
 const Footer = () => {
+  const calendarLink = 'https://outlook.office.com/bookwithme/user/9add25e1a57b41728c50fff069446682@fsu.edu?anonymous&ep=plink';
+
   return (
     <>
       <div className="mt-5 laptop:mt-40 p-2 laptop:p-0">
@@ -30,7 +18,9 @@ const Footer = () => {
             <h1 className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl text-bold">
               TOGETHER
             </h1>
-            <CallButton />
+            <Button type="primary" onClick={() => window.location.href = calendarLink}>
+              Schedule a meeting
+            </Button>
             <div className="mt-10">
               <Socials />
             </div>
