@@ -3,7 +3,21 @@ import Socials from "../Socials";
 import Link from "next/link";
 import Button from "../Button";
 
-const Footer = ({}) => {
+const CallButton = () => {
+  const phoneNumber = '4485006857'; 
+
+  const handleCallButtonClick = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
+  return (
+    <Button type="primary" onClick={handleCallButtonClick}>
+      Schedule a call
+    </Button>
+  );
+};
+
+const Footer = () => {
   return (
     <>
       <div className="mt-5 laptop:mt-40 p-2 laptop:p-0">
@@ -16,7 +30,7 @@ const Footer = ({}) => {
             <h1 className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl text-bold">
               TOGETHER
             </h1>
-            <Button type="primary">Schedule a call</Button>
+            <CallButton />
             <div className="mt-10">
               <Socials />
             </div>
