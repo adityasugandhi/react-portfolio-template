@@ -173,10 +173,12 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 Resume
               </Button>
             )}
-
-            <Button onClick={() => window.open("mailto:as22cq@fsu.edu")}>
+            <Button onClick={() => router.push("/resume")}>
               Contact
             </Button>
+            {/* <Button onClick={() => window.open("mailto:as22cq@fsu.edu")}>
+              Contact
+            </Button> */}
 
             {mounted && theme && data.darkMode && (
               <Button
