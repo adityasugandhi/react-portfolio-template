@@ -3,6 +3,7 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Button from "../Button";
+import Image from "next/image";
 // Local Data
 import data from "../../data/portfolio.json";
 
@@ -37,17 +38,20 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                       setTheme(theme === "dark" ? "light" : "dark")
                     }
                   >
-                    <img
+                    <Image
                       className="h-6"
                       src={`/images/${
                         theme === "dark" ? "moon.svg" : "sun.svg"
                       }`}
-                    ></img>
+                      width={24}
+                      height={24}
+                      alt="sun-moon-icon"
+                    />
                   </Button>
                 )}
 
                 <Popover.Button>
-                  <img
+                  <Image
                     className="h-5"
                     src={`/images/${
                       !open
@@ -58,13 +62,16 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                         ? "cancel.svg"
                         : "cancel-white.svg"
                     }`}
-                  ></img>
+                    height={20}
+                    width={20}
+                    alt="menu-cancel-svg"
+                  />
                 </Popover.Button>
               </div>
             </div>
             <Popover.Panel
               className={`absolute right-0 z-10 w-11/12 p-4 ${
-                theme === "dark" ? "bg-slate-800" : "bg-white"
+                theme === "dark" ? "bg-slate-900" : "bg-white"
               } shadow-md rounded-md`}
             >
               {!isBlog ? (
@@ -76,9 +83,9 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   )}
                   {showResume && (
                     <Button
-                      onClick={() =>
-                        router.push("/resume")}
-                        classes="first:ml-1">
+                      onClick={() => router.push("/resume")}
+                      classes="first:ml-1"
+                    >
                       Resume
                     </Button>
                   )}
@@ -119,7 +126,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
       </Popover>
       <div
         className={`mt-10 hidden flex-row items-center justify-between sticky ${
-          theme === "light" && "bg-white"
+          theme === "light" && "bg-black" && "border-radius-2xl"
         } dark:text-white top-0 z-10 tablet:flex`}
       >
         <h1
@@ -151,10 +158,13 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               <Button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               >
-                <img
+                <Image
                   className="h-6"
                   src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
+                  height={24}
+                  width={24}
+                  alt="moon-sun-svg"
+                />
               </Button>
             )}
           </div>
@@ -175,18 +185,21 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
             <Button onClick={() => router.push("/resume")}>
               Contact
             </Button>
-            {/* <Button onClick={() => window.open("mailto:as22cq@fsu.edu")}>
+            <Button onClick={() => window.open("mailto:as22cq@fsu.edu")}>
               Contact
-            </Button> */}
+            </Button>
 
             {mounted && theme && data.darkMode && (
               <Button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               >
-                <img
+                <Image
                   className="h-6"
                   src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
+                  alt="moon-sun-svg"
+                  height={24}
+                  width={24}
+                />
               </Button>
             )}
           </div>
