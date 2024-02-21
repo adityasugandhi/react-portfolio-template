@@ -9,10 +9,12 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import Button from "../components/Button";
 import Link from "next/link";
-import Cursor from "../components/Cursor";
-
+import {useTheme} from "next-themes";
+// import Cursor from "../components/Cursor";
+import { SparklesCore } from "../components/ui/sparkles";
 // Local Data
 import data from "../data/portfolio.json";
+import { ThreeDCardDemo } from "../components/WorkCard/3dIndex";
 
 export default function Home() {
   // Ref
@@ -22,7 +24,9 @@ export default function Home() {
   const textTwo = useRef();
   const textThree = useRef();
   const textFour = useRef();
+  const { theme, setTheme } = useTheme();
 
+  const color = theme === "dark" ? "#fff" : "#000";
   // Handling Scroll
   const handleWorkScroll = () => {
     window.scrollTo({
@@ -49,11 +53,20 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={`relative ${data.showCursor && "cursor-none"}`}>
-      {data.showCursor && <Cursor />}
+    <div>
+    
       <Head>
         <title>{data.name}</title>
       </Head>
+      <SparklesCore
+        id="tsparticlesfullpage"
+        background="transparent"
+        minSize={0.6}
+        maxSize={1.4}
+        particleDensity={100}
+        className="fixed inset-0 z-10 pointer-events-none"
+        particleColor={color}
+      />
 
       <div className="gradient-circle"></div>
       <div className="gradient-circle-bottom"></div>
@@ -98,7 +111,7 @@ export default function Home() {
 
           <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
             {data.projects.map((project) => (
-              <WorkCard
+              <ThreeDCardDemo
                 key={project.id}
                 img={project.imageSrc}
                 name={project.title}

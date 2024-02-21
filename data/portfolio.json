@@ -4,7 +4,7 @@
     "headerTaglineTwo": "I'm Aditya",
     "headerTaglineThree": "Software Engineer",
     "headerTaglineFour": "",
-    "showCursor": true,
+    "showCursor": false,
     "showBlog": false,
     "darkMode": true,
     "showResume": true,

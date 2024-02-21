@@ -30,7 +30,7 @@ const Footer = () => {
       <h1 className="text-sm text-bold mt-2 laptop:mt-10 p-2 laptop:p-0">
         Software Engineer{" "}
         <Link href="">
-          <a className="underline underline-offset-1">Aditya Sugandhi</a>
+          <div className="underline underline-offset-1">Aditya Sugandhi</div>
         </Link>
       </h1>
     </>

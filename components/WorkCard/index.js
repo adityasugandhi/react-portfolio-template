@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 const WorkCard = ({ img, name, description, onClick }) => {
   return (
     <div
