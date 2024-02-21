@@ -19,24 +19,25 @@ export function ThreeDCardDemo({ img, name, description, onClick }) {
     
     
     return (
+      <div onClick={onClick}>
       <CardContainer
         className={`inter-var ${theme === 'dark' ? 'dark' : ''}`}
-        onClick={onClick}
+        
       >
         <CardBody className={`relative group/card border-black border ${theme === 'dark' ? 'dark:text-white' : 'text-black'} ${mounted && theme === 'dark' ? 'dark:hover:bg-slate-900' : 'hover:bg-slate-50'} ${theme === 'dark' ? 'dark' : ''}:hover:shadow-2xl ${theme === 'dark' ? 'dark' : ''}:hover:shadow-emerald-500/[0.1] ${theme === 'dark' ? 'dark' : ''}:bg-transparent ${theme === 'dark' ? 'dark' : ''}:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6`}
       >
         <CardItem
           translateZ="50"
-          className={`text-xl font-bold`}
+          className={`text-2xl font-bold`}
         >
           {name}
         </CardItem>
         <CardItem
       as="p"
       translateZ="60"
-      className={`text-sm mt-2 ${
-        mounted && theme === 'dark' ? 'dark:text-neutral-300' : 'text-neutral-800'
-      } opacity-50 transition-all ease-in-out duration-300`}
+      className={`text-l mt-2 ${
+        mounted && theme === 'dark' ? 'text-white' : 'text-black'
+      } opacity-50 hover:opacity-100 transition-all ease-in-out duration-300`}
     >
       {description}
     </CardItem>
@@ -57,5 +58,6 @@ export function ThreeDCardDemo({ img, name, description, onClick }) {
         </CardItem>
       </CardBody>
     </CardContainer>
+    </div>
     );
   }
