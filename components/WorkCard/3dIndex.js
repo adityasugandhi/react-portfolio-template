@@ -22,7 +22,7 @@ export function ThreeDCardDemo({ img, name, description, onClick, youtubeId }) {
             <CardContainer
                 className={`inter-var ${theme === 'dark' ? 'dark' : ''}`}
             >
-                <CardBody className={`relative group/card border-black border ${theme === 'dark' ? 'dark:text-white' : 'text-black'} ${mounted && theme === 'dark' ? 'dark:hover:bg-slate-900' : 'hover:bg-slate-50'} ${theme === 'dark' ? 'dark' : ''}:hover:shadow-2xl ${theme === 'dark' ? 'dark' : ''}:hover:shadow-emerald-500/[0.1] ${theme === 'dark' ? 'dark' : ''}:bg-transparent ${theme === 'dark' ? 'dark' : ''}:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6`}
+                <CardBody className={`relative group/card border-black border ${theme === 'dark' && mounted ? 'dark:text-white' : 'text-black'} ${mounted && theme === 'dark' ? 'dark:hover:bg-slate-900' : 'hover:bg-slate-50'} ${theme === 'dark' && mounted ? 'dark' : ''}:hover:shadow-2xl ${theme === 'dark' && mounted ? 'dark' : ''}:hover:shadow-emerald-500/[0.1] ${theme === 'dark' && mounted ? 'dark' : ''}:bg-transparent ${theme === 'dark' && mounted ? 'dark' : ''}:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6`}
                 >
                     <CardItem
                         translateZ="50"
@@ -63,7 +63,7 @@ export function ThreeDCardDemo({ img, name, description, onClick, youtubeId }) {
                                 height={1000}
                                 width={1000}
                                 priority={true}
-                                className="h-82 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                                className="h-80 w-full object-cover rounded-xl group-hover/card:shadow-xl"
                                 alt="thumbnail"
                             />
                         )}
