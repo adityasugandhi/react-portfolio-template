@@ -58,7 +58,7 @@ export default function Home() {
       <Head>
         <title>{data.name}</title>
       </Head>
-      <SparklesCore
+      <SparklesCore style={{ zIndex: -9999 }}
         id="tsparticlesfullpage"
         background="transparent"
         minSize={0.6}
@@ -66,7 +66,6 @@ export default function Home() {
         particleDensity={100}
         className="fixed inset-0 z-10 pointer-events-none"
         particleColor={color}
-        zIndex={-1}
       />
 
       <div className="gradient-circle"></div>
@@ -147,8 +146,8 @@ export default function Home() {
           </div>
         )}
         <div className="mt-10 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
-          <h1 className="tablet:m-10 text-2xl text-bold">About.</h1>
-          <p className="tablet:m-10 mt-2 text-xl laptop:text-3xl w-full laptop:w-3/5">
+          <h1 className="tablet:m-10 text-4xl text-bold">About</h1>
+          <p className="tablet:m-10 mt-2 text-xl laptop:text-3xl w-full laptop:w-5/5">
             {data.aboutpara}
           </p>
         </div>
