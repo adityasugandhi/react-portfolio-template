@@ -67,7 +67,7 @@ export const SparklesCore = (props: ParticlesProps) => {
             },
             fullScreen: {
               enable: false,
-              zIndex: 1,
+              zIndex: -1,
             },
 
             fpsLimit: 120,

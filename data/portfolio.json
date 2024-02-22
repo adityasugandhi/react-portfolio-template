@@ -18,7 +18,7 @@
       {
         "id": "1",
         "title": "Network Simulation",
-        "description": "Directed the smooth integration of varied components across data and network link layers, including Bridges, Routers, and Stations. Cultivated a refined expertise in socket connections, ensuring the effortless transmission of data frames among interconnected devices. This initiative underscores a comprehensive grasp of network architecture, demonstrating adept skills in promoting seamless communication and interoperability among diverse networking elements.",
+        "description": "Architecting Connectivity: Orchestrating the Integration of Network Layers for Seamless Data Transmission",
         "imageSrc": "/projects/Networks.jpeg",
         "url": "https://github.com/adityasugandhi/Network-Simulation"
       },
@@ -28,7 +28,17 @@
         "description": "Implemented Maximal Clique Algorithm for finding maximal & non-maximal clique in uncertain networks, datasets based on Social networks. such as LinkedIn, Facebook, Ask Ubuntu",
         "imageSrc": "/projects/earth.jpeg",
         "url": "https://github.com/adityasugandhi/Improved-Algorithms-in-finding-maximal-and-maximum-clique-in-uncertain-networks"
+      },
+      {
+        "id": "3",
+        "title": "Transforming Minds: Decoding the Magic of Transformer Architecture",
+        "description": 
+        "Unlock the mysteries of Transformer architecture in my latest YouTube video! 🚀📚 Join me for a captivating journey into the heart of modern language models. 🔍✨ #TransformerMagic #AIExplained",
+        "imageSrc": "/projects/earth.jpeg",
+        "youtubeId":"I7_KOtXMmw4"
+
       }
+
     ],
     "services": [
       {
