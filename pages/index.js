@@ -24,9 +24,9 @@ export default function Home() {
   const textTwo = useRef();
   const textThree = useRef();
   const textFour = useRef();
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
-  const color = theme === "dark" ? "#fff" : "#000";
+  const color = resolvedTheme === "dark" ? "#fff" : "#000";
   // Handling Scroll
   const handleWorkScroll = () => {
     window.scrollTo({
