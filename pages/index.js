@@ -58,13 +58,13 @@ export default function Home() {
       <Head>
         <title>{data.name}</title>
       </Head>
-      <SparklesCore style={{ zIndex: -9999 }}
+      <SparklesCore
         id="tsparticlesfullpage"
         background="transparent"
         minSize={0.6}
         maxSize={1.4}
         particleDensity={100}
-        className="fixed inset-0 z-10 pointer-events-none"
+        className="fixed inset-0 z-[-10] pointer-events-none"
         particleColor={color}
       />
 

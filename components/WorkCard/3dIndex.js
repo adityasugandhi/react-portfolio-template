@@ -6,23 +6,19 @@ import { useTheme } from "next-themes";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 
 export function ThreeDCardDemo({ img, name, description, onClick, youtubeId }) {
-    const { theme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState();
 
-    useEffect(() => {
-        setMounted(true);
-        return () => {
-          // Cleanup code if needed
-          setMounted(false);
-        };
-    }, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
     
     return (
         <div onClick={onClick}>
             <CardContainer
-                className={`inter-var ${theme === 'dark' ? 'dark' : ''}`}
+                className={`inter-var`}
             >
-                <CardBody className={`relative group/card border-black border ${theme === 'dark' && mounted ? 'dark:text-white' : 'text-black'} ${mounted && theme === 'dark' ? 'dark:hover:bg-slate-900' : 'hover:bg-slate-50'} ${theme === 'dark' && mounted ? 'dark' : ''}:hover:shadow-2xl ${theme === 'dark' && mounted ? 'dark' : ''}:hover:shadow-emerald-500/[0.1] ${theme === 'dark' && mounted ? 'dark' : ''}:bg-transparent ${theme === 'dark' && mounted ? 'dark' : ''}:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6`}
+                <CardBody className={`relative group/card border-black border ${resolvedTheme === 'dark' && mounted ? 'dark:text-white' : 'text-black'} ${mounted && resolvedTheme === 'dark' ? 'dark:hover:bg-slate-900' : 'hover:bg-slate-50'} ${resolvedTheme === 'dark' && mounted ? 'dark' : ''}:hover:shadow-2xl ${resolvedTheme === 'dark' && mounted ? 'dark' : ''}:hover:shadow-emerald-500/[0.1] ${resolvedTheme === 'dark' && mounted ? 'dark' : ''}:bg-transparent ${resolvedTheme === 'dark' && mounted ? 'dark' : ''}:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6`}
                 >
                     <CardItem
                         translateZ="50"
@@ -34,7 +30,7 @@ export function ThreeDCardDemo({ img, name, description, onClick, youtubeId }) {
                         as="p"
                         translateZ="60"
                         className={`text-l mt-2 ${
-                            mounted && theme === 'dark' ? 'text-white' : 'text-black'
+                            mounted && resolvedTheme === 'dark' ? 'text-white' : 'text-black'
                         } opacity-50 hover:opacity-100 transition-all ease-in-out duration-300`}
                     >
                         {description}
