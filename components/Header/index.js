@@ -9,7 +9,8 @@ import data from "../../data/portfolio.json";
 
 const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const router = useRouter();
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, theme, setTheme } = useTheme();
+  
   const [mounted, setMounted] = useState(false);
 
   const { name, showBlog, showResume } = data;
@@ -41,7 +42,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                     <Image
                       className="h-6"
                       src={`/images/${
-                        theme === "dark" ? "moon.svg" : "sun.svg"
+                        resolvedTheme === "dark" ? "moon.svg" : "sun.svg"
                       }`}
                       width={24}
                       height={24}
@@ -55,10 +56,10 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                     className="h-5"
                     src={`/images/${
                       !open
-                        ? theme === "dark"
+                        ? resolvedTheme === "dark"
                           ? "menu-white.svg"
                           : "menu.svg"
-                        : theme === "light"
+                        : resolvedTheme === "light"
                         ? "cancel.svg"
                         : "cancel-white.svg"
                     }`}
@@ -71,7 +72,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
             </div>
             <Popover.Panel
               className={`absolute right-0 z-10 w-11/12 p-4 ${
-                theme === "dark" ? "bg-slate-900" : "bg-white"
+                resolvedTheme === "dark" ? "bg-slate-900" : "bg-white"
               } shadow-md rounded-md`}
             >
               {!isBlog ? (
@@ -126,7 +127,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
       </Popover>
       <div
         className={`mt-10 hidden flex-row items-center justify-between sticky ${
-          theme === "light" && "bg-black" && "border-radius-2xl"
+          resolvedTheme === "light" && "bg-black" && "border-radius-2xl"
         } dark:text-white top-0 z-10 tablet:flex`}
       >
         <h1
@@ -195,7 +196,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               >
                 <Image
                   className="h-6"
-                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
+                  src={`/images/${resolvedTheme === "dark" ? "moon.svg" : "sun.svg"}`}
                   alt="moon-sun-svg"
                   height={24}
                   width={24}
