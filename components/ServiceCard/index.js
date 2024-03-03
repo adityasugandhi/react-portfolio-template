@@ -15,7 +15,7 @@ const ServiceCard = ({ name, description }) => {
       } hover:scale-105 link`}
     >
       <h1 className="text-3xl">{name ? name : "Heading"}</h1>
-      <p className="mt-5 opacity-30 text-xl hover:opacity-100">
+      <p className="text-justify t-5 opacity-30 text-xl hover:opacity-100">
         {description
           ? description
           : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. "}

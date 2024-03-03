@@ -75,3 +75,10 @@ body {
   background: inherit;
   border-radius: inherit;
 }
+
+/* In your styles or global Tailwind CSS */
+.my-custom-macbook-scroll {
+  width: 600px; /* Adjust the width as needed */
+  height: 400px; /* Adjust the height as needed */
+  /* Add any other styling you want for the custom class */
+}

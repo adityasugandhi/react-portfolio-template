@@ -46,14 +46,14 @@ const Resume = () => {
             >
               <h1 className="text-3xl font-bold">{data.name}</h1>
               <h2 className="text-xl mt-5">{data.resume.tagline}</h2>
-              <h2 className="w-4/5 text-xl mt-5 opacity-50">
+              <h2 className=" text-xl mt-5 opacity-50">
                 {data.resume.description}
               </h2>
               <div className="mt-2">
                 <Socials />
               </div>
               <div className="mt-5">
-                <h1 className="text-2xl font-bold">Experience</h1>
+                <h1 className="text-3xl font-bold">Experience</h1>
                 {data.resume.experiences.map(({ id, dates, type, position, bullets }) => (
   <ProjectResume
     key={id}
@@ -61,6 +61,7 @@ const Resume = () => {
     type={type}
     position={position}
     bullets={bullets}
+    className="w-full"
   />
 ))}
 
@@ -73,7 +74,7 @@ const Resume = () => {
                     <h3 className="text-sm opacity-75">
                       {education.universityDate}
                     </h3>
-                    <p className="text-sm mt-2 opacity-50">
+                    <p className="text-md pd-10 first-line:mt-2 opacity-50">
                       {education.universityPara}
                     </p>
                   </div>

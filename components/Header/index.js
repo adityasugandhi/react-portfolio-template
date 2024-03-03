@@ -14,14 +14,28 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const [mounted, setMounted] = useState(false);
 
   const { name, showBlog, showResume } = data;
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+  
+    const handleScroll = () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      setIsScrolled(scrollY > 0);
+    };
+  
+    // Check if the window object is defined (for server-side rendering)
+    if (typeof window !== 'undefined') {
+      window.addEventListener("scroll", handleScroll);
+  
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
   }, []);
-
   return (
     <>
-      <Popover className="block tablet:hidden mt-5">
+      <Popover className="block tablet:hidden mt-5${isScrolled ? 'bg-opacity-100' : 'bg-opacity-0'}`">
         {({ open }) => (
           <>
             <div className="flex items-center justify-between p-2 laptop:p-0">
@@ -126,10 +140,11 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
         )}
       </Popover>
       <div
-        className={`mt-10 hidden flex-row items-center justify-between sticky ${
-          resolvedTheme === "light" && "bg-black" && "border-radius-2xl"
-        } dark:text-white top-0 z-10 tablet:flex`}
-      >
+       className={`mt-10 hidden flex-row items-center justify-between sticky ${
+        resolvedTheme === "light" && "bg-black" && "border-radius-2xl"
+      } dark:text-white top-0 z-10 tablet:flex ${isScrolled ? 'bg-opacity-50' : 'bg-opacity-100'}`}
+    >
+      
         <h1
           onClick={() => router.push("/")}
           className="font-medium cursor-pointer mob:p-2 laptop:p-0"
