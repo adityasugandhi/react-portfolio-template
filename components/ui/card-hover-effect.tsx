@@ -11,19 +11,19 @@ export const HoverEffect = ({
   className,
 }: {
   items: {
-    id: string;    
+    id: string;
     title: string;
     description: string;
-    url: string;
+    url?: string;
     imageSrc?: string;
-    youtubeId?:string; // Add the optional imageSrc property
+    youtubeId?: string;
+    Docs?: string;
   }[];
   className?: string;
 }) => {
-    
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const { resolvedTheme } = useTheme();
-  console.log("resolvedTheme",resolvedTheme)
+
   return (
     <div
       className={cn(
@@ -32,8 +32,7 @@ export const HoverEffect = ({
       )}
     >
       {items.map((item, idx) => (
-        <Link
-          href={item?.url || "#"} // Add a fallback or use a default value
+        <div
           key={item?.url || idx.toString()}
           className="relative group block p-2 h-auto w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
@@ -42,7 +41,9 @@ export const HoverEffect = ({
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-              className={`absolute inset-0 h-full w-full ${resolvedTheme === "dark" ? "bg-gray-700" : "bg-gray-300"} block rounded-3xl`}
+                className={`absolute inset-0 h-full w-full ${
+                  resolvedTheme === "dark" ? "bg-gray-700" : "bg-gray-300"
+                } block rounded-3xl`}
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -56,11 +57,23 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card theme = {resolvedTheme} {...item} > {/* Assuming a default theme value */}
-          <CardTitle theme={resolvedTheme}>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
-          </Card>
-        </Link>
+          <div>
+            {/* Removed the Link component */}
+            <Card theme={resolvedTheme} {...item}>
+              {/* Assuming a default theme value */}
+              <CardTitle theme={resolvedTheme}>{item.title}</CardTitle>
+              <CardDescription>{item.description}</CardDescription>
+              <div className="absolute bottom-0 right-0 flex">
+      {item.url && (
+        <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 opacity-75 hover:opacity-100 transition-opacity duration-500 mr-2">Learn More</a>
+      )}
+      {item.Docs && (
+        <a href={item.Docs} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 opacity-75 hover:opacity-100 transition-opacity duration-500">Docs</a>
+      )}
+    </div>
+            </Card>
+          </div>
+        </div>
       ))}
     </div>
   );
@@ -130,7 +143,7 @@ export const CardTitle = ({
 }) => {
     console.log("theme",theme)  
   return (
-    <h4 className={cn(`font-bold  laptop:text-3xl mobile:text-xl tracking-wide mt-4`, className)}>
+    <h4 className={cn(`font-bold  laptop:text-3xl tablet:text-2xl   tracking-wide mt-4`, className)}>
       {children}
     </h4>
   );

@@ -10,32 +10,31 @@ import data from "../../data/portfolio.json";
 const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const router = useRouter();
   const { resolvedTheme, theme, setTheme } = useTheme();
-  
-  const [mounted, setMounted] = useState(false);
 
+  const [mounted, setMounted] = useState(false);
   const { name, showBlog, showResume } = data;
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-  
+
     const handleScroll = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop;
       setIsScrolled(scrollY > 0);
     };
-  
-    // Check if the window object is defined (for server-side rendering)
+
     if (typeof window !== 'undefined') {
       window.addEventListener("scroll", handleScroll);
-  
+
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };
     }
   }, []);
+
   return (
     <>
-      <Popover className="block tablet:hidden mt-5${isScrolled ? 'bg-opacity-100' : 'bg-opacity-0'}`">
+      <Popover className={`block tablet:hidden mt-5 ${isScrolled ? 'bg-opacity-100 backdrop-blur-lg' : 'bg-opacity-0'} z-100 relative`}>
         {({ open }) => (
           <>
             <div className="flex items-center justify-between p-2 laptop:p-0">
@@ -89,52 +88,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 resolvedTheme === "dark" ? "bg-slate-900" : "bg-white"
               } shadow-md rounded-md`}
             >
-              {!isBlog ? (
-                <div className="grid grid-cols-1">
-                  <Button onClick={handleWorkScroll}>Work</Button>
-                  <Button onClick={handleAboutScroll}>About</Button>
-                  {showBlog && (
-                    <Button onClick={() => router.push("/blog")}>Blog</Button>
-                  )}
-                  {showResume && (
-                    <Button
-                      onClick={() => router.push("/resume")}
-                      classes="first:ml-1"
-                    >
-                      Resume
-                    </Button>
-                  )}
-
-                  <Button
-                    onClick={() => window.open("mailto:as22cq@fsu.edu", "_blank")}
-                  >
-                    Contact
-                  </Button>
-                </div>
-              ) : (
-                <div className="grid grid-cols-1">
-                  <Button onClick={() => router.push("/")} classes="first:ml-1">
-                    Home
-                  </Button>
-                  {showBlog && (
-                    <Button onClick={() => router.push("/blog")}>Blog</Button>
-                  )}
-                  {showResume && (
-                    <Button
-                      onClick={() => router.push("/resume")}
-                      classes="first:ml-1"
-                    >
-                      Resume
-                    </Button>
-                  )}
-
-                  <Button
-                    onClick={() => window.open("mailto:as22cq@fsu.edu")}
-                  >
-                    Contact
-                  </Button>
-                </div>
-              )}
+              {/* Popover panel content */}
             </Popover.Panel>
           </>
         )}
@@ -142,7 +96,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
       <div
        className={`mt-10 hidden flex-row items-center justify-between sticky ${
         resolvedTheme === "light" && "bg-black" && "border-radius-2xl"
-      } dark:text-white top-0 z-10 tablet:flex ${isScrolled ? 'bg-opacity-50' : 'bg-opacity-100'}`}
+      } dark:text-white top-0 z-100 relative tablet:flex ${isScrolled ? 'bg-opacity-50' : 'bg-opacity-100'}`}
     >
       
         <h1
@@ -198,9 +152,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 Resume
               </Button>
             )}
-            <Button onClick={() => router.push("/resume")}>
-              Contact
-            </Button>
+
             <Button onClick={() => window.open("mailto:as22cq@fsu.edu")}>
               Contact
             </Button>

@@ -32,19 +32,23 @@
     }
   ],
   "projects": [
+
     {
       "id": "1",
       "title": "Network Simulation",
       "description": "Architecting Connectivity: Orchestrating the Integration of Network Layers for Seamless Data Transmission",
       "imageSrc": "/projects/Networks.jpeg",
-      "url": "https://github.com/adityasugandhi/Network-Simulation"
+      "url": "https://github.com/adityasugandhi/Network-Simulation",
+      "Docs": "/Docs/Networking Wonderland.pdf"
     },
     {
       "id": "da5846b2-2868-404f-82fe-b26c9a34fc68",
       "title": "Improved Algorithms in finding maximal & maximum clique in uncertain networks",
       "description": "Implemented Maximal Clique Algorithm for finding maximal & non-maximal clique in uncertain networks, datasets based on Social networks. such as LinkedIn, Facebook, Ask Ubuntu",
       "imageSrc": "/projects/earth.jpeg",
-      "url": "https://github.com/adityasugandhi/Improved-Algorithms-in-finding-maximal-and-maximum-clique-in-uncertain-networks"
+      "url": "https://github.com/adityasugandhi/Improved-Algorithms-in-finding-maximal-and-maximum-clique-in-uncertain-networks",
+      "Docs": "/Docs/FINAL_PROJECT_REPORT_DBS.pdf"
+      
     },
     {
       "id": "3",
@@ -53,6 +57,15 @@
       "imageSrc": "/projects/earth.jpeg",
       "url": "https://www.youtube.com/watch?v=I7_KOtXMmw4",
       "youtubeId":"I7_KOtXMmw4"
+
+    },
+    {
+      "id": "4",
+      "title": "Maglab - A Magnetic Field Simulation Data Analysis",
+      "description": "Unraveling the enigma of an oil sample through cutting-edge mass spectrometry. Deciphered the molecular formulas of the top five abundant compounds, igniting a quest to unveil their true identities. A testament to my passion for unlocking nature's secrets, one spectrum at a time.",
+      "imageSrc": "/projects/maglab_at_night.jpg",
+      "url": "https://www.youtube.com/watch?v=I7_KOtXMmw4",
+      "Docs": "/Docs/Project2_ProDS.pdf"
     }
   ],
   "services": [
