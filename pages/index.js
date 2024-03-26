@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef,useState,useEffect } from "react";
 import Header from "../components/Header";
 import ServiceCard from "../components/ServiceCard";
 import Socials from "../components/Socials";
@@ -31,9 +31,16 @@ export default function Home() {
   const textTwo = useRef();
   const textThree = useRef();
   const textFour = useRef();
-  const { resolvedTheme } = useTheme();
+  let { resolvedTheme } = useTheme();
 
   const color = resolvedTheme === "dark" ? "#fff" : "#000";
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Theme initialization
+    setIsLoading(false); // Simulate theme initialization completion
+  }, []); // Empty dependency array ensures this runs only once
   // Handling Scroll
   const handleWorkScroll = () => {
     window.scrollTo({
@@ -113,8 +120,7 @@ export default function Home() {
               {data.headerTaglineFour}
             </h1>
           </div>
-
-          <Socials className="mt-2 laptop:mt-5" />
+          {!isLoading && <Socials className="pr-2 mt-2 laptop:mt-5" />}
         </div>
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
           <h1 className="text-4xl text-bold">Projects</h1>
