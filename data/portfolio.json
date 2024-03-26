@@ -13,22 +13,31 @@
     {
       "id": "1",
       "title": "Github",
-      "link": "https://github.com/adityasugandhi"
+      "link": "https://github.com/adityasugandhi",
+      "logo":"/sociallogos/github.png",
+      "logo_dark":"/sociallogos/Github_dark.png"
     },
     {
       "id": "2",
       "title": "LinkedIn",
-      "link": "https://www.linkedin.com/in/sugandhiaditya/"
+      "link": "https://www.linkedin.com/in/sugandhiaditya/",
+      "logo":"/sociallogos/linkedin_white.png",
+      "logo_dark":"/sociallogos/linkedin_dark.png"
     },
     {
       "id": "3",
       "title": "Twitter",
-      "link": "https://twitter.com/stranzersweb"
+      "link": "https://twitter.com/stranzersweb",
+      "logo":"/sociallogos/x_white.png",
+      "logo_dark":"/sociallogos/x_dark.png"
     },
     {
       "id": "4",
       "title": "Email",
-      "link": "mailto:as22cq@fsu.edu"
+      "link": "mailto:as22cq@fsu.edu",
+      "logo":"/sociallogos/mail_white.png",
+      "logo_dark":"/sociallogos/mail_dark.png"
+      
     }
   ],
   "projects": [
