@@ -42,7 +42,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 onClick={() => router.push("/")}
                 className="font-medium p-2 laptop:p-0 link"
               >
-                {name}.
+                {name}
               </h1>
 
               <div className="flex items-center">
@@ -84,12 +84,31 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
               </div>
             </div>
             <Popover.Panel
-              className={`absolute right-0 z-10 w-11/12 p-4 ${
-                resolvedTheme === "dark" ? "bg-slate-900" : "bg-white"
-              } shadow-md rounded-md`}
-            >
-              {/* Popover panel content */}
-            </Popover.Panel>
+  className={`absolute right-0 z-10 w-full p-4 ${resolvedTheme === "dark" ? "bg-slate-900" : "bg-white"} shadow-md rounded-md`}
+>
+  <div className="flex flex-col space-y-2">
+    <Button 
+      onClick={() => router.push("/")} 
+      className="hover:bg-gray-200 hover:text-gray-800"
+    >
+      Home
+    </Button>
+    <Button 
+      onClick={() => router.push("/resume")} 
+      className="hover:bg-gray-200 hover:text-gray-800"
+    >
+      Resume
+    </Button>
+    <Button 
+      onClick={() => window.open("mailto:as22cq@fsu.edu")} 
+      className="hover:bg-gray-200 hover:text-gray-800"
+    >
+      Contact
+    </Button>
+    {/* You may also add other buttons or content as needed */}
+  </div>
+</Popover.Panel>
+
           </>
         )}
       </Popover>
