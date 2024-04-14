@@ -18,7 +18,7 @@ const Resume = () => {
   const [mount, setMount] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 1200 }); 
   const size = isMobile ? "sm" : "md";
-  const barSize = isMobile? "600px" : "200px";
+  const barSize = isMobile? "500px" : "200px";
  
   const generateRandomValue = () => {
       const random = Math.random();
