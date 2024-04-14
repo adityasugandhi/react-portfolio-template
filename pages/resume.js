@@ -5,8 +5,10 @@ import Header from "../components/Header";
 import ProjectResume from "../components/ProjectResume";
 import Socials from "../components/Socials";
 import Button from "../components/Button";
+import { Progress } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 // Data
+import { useMediaQuery } from 'react-responsive'
 
 import data from "../data/portfolio.json";
 
@@ -14,6 +16,17 @@ const Resume = () => {
   const router = useRouter();
   const resolvedTheme = useTheme();
   const [mount, setMount] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 1200 }); 
+  const size = isMobile ? "sm" : "md";
+  const barSize = isMobile? "600px" : "200px";
+ 
+  const generateRandomValue = () => {
+      const random = Math.random();
+      const scaled = random * (87 - 50) + 45;
+      const rounded = Math.round(scaled);
+      return rounded;
+    };
+  
 
   useEffect(() => {
     setMount(true);
@@ -51,6 +64,7 @@ const Resume = () => {
               </h2>
               <div className="mt-2">
                 <Socials />
+
               </div>
               <div className="mt-5">
                 <h1 className="text-3xl font-bold">Experience</h1>
@@ -80,16 +94,24 @@ const Resume = () => {
                   </div>
                 ))}
               </div>
-              <div className="mt-5">
+              <div className="mt-5 ">
                 <h1 className="text-2xl font-bold">Skills</h1>
-                <div className="flex mob:flex-col desktop:flex-row justify-between">
+                <div className="flex mob:flex-col mob:ml-5 desktop:flex-row  justify-around  ">
                   {data.resume.languages && (
                     <div className="mt-2 mob:mt-5">
                       <h2 className="text-lg">Languages</h2>
-                      <ul className="list-disc">
+                      <ul className="list-disc" >
                         {data.resume.languages.map((language, index) => (
-                          <li key={index} className="ml-5 py-2">
-                            {language}
+                         <li key={index} className="ml-2 py-2" style={{ width: barSize }}>
+                            <span>{language} </span>
+                            <div> <Progress
+                              isStriped
+                              size= {size}
+                              aria-label="Loading..."
+                              color="primary"
+                              value={generateRandomValue()}
+                              className="max-w-md w-full overflow"
+                            /></div>
                           </li>
                         ))}
                       </ul>
@@ -101,8 +123,16 @@ const Resume = () => {
                       <h2 className="text-lg">Frameworks</h2>
                       <ul className="list-disc">
                         {data.resume.frameworks.map((framework, index) => (
-                          <li key={index} className="ml-5 py-2">
+                          <li key={index} className="ml-5 py-2" style={{width:barSize}}>
                             {framework}
+                            <div> <Progress
+                              isStriped
+                              size= {size}
+                              aria-label="Loading..."
+                              color="secondary"
+                              value={generateRandomValue()}
+                              className="max-w-md w-full overflow"
+                            /></div>
                           </li>
                         ))}
                       </ul>
@@ -114,8 +144,17 @@ const Resume = () => {
                       <h2 className="text-lg">Others</h2>
                       <ul className="list-disc">
                         {data.resume.others.map((other, index) => (
-                          <li key={index} className="ml-5 py-2">
+                          <li key={index} className="ml-5 py-2"style={{width:barSize}}>
+
                             {other}
+                            <div> <Progress
+                              isStriped
+                              size= {size}
+                              aria-label="Loading..."
+                              color="success"
+                              value={generateRandomValue()}
+                              className="max-w-md w-full overflow"
+                            /></div>
                           </li>
                         ))}
                       </ul>
@@ -130,5 +169,8 @@ const Resume = () => {
     </>
   );
 };
+
+
+
 
 export default Resume;
