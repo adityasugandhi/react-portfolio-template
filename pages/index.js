@@ -2,7 +2,6 @@ import { useRef,useState,useEffect } from "react";
 import Header from "../components/Header";
 import ServiceCard from "../components/ServiceCard";
 import Socials from "../components/Socials";
-import script from "next/script.d.ts"
 import { useIsomorphicLayoutEffect } from "../utils";
 import { stagger } from "../animations";
 import Footer from "../components/Footer";
@@ -72,15 +71,7 @@ export default function Home() {
       <Head>
         <title>{data.name}</title>
         <meta name="description" content={data.content} />
-       
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDK9138DFD"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)};
-          gtag('js', new Date());
-
-          gtag('config', 'G-LDK9138DFD');
-        </script>
+      
       </Head>
       <SparklesCore
         id="tsparticlesfullpage"
