@@ -72,6 +72,15 @@ export default function Home() {
       <Head>
         <title>{data.name}</title>
         <meta name="description" content={data.content} />
+       
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDK9138DFD"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)};
+          gtag('js', new Date());
+
+          gtag('config', 'G-LDK9138DFD');
+        </script>
       </Head>
       <SparklesCore
         id="tsparticlesfullpage"
