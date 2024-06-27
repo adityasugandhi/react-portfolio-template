@@ -15,6 +15,7 @@ const CountdownTimer = ({ targetDate }) => {
 
   function calculateTimeLeft(targetDate) {
     const now = new Date().getTime();
+    const final = 90
     const distance = new Date(targetDate).getTime() - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -27,6 +28,7 @@ const CountdownTimer = ({ targetDate }) => {
       hours: hours.toString().padStart(2, '0'),
       minutes: minutes.toString().padStart(2, '0'),
       seconds: seconds.toString().padStart(2, '0'),
+      final: final
     };
   }
 
@@ -39,6 +41,9 @@ const CountdownTimer = ({ targetDate }) => {
             </div> 
         <div className="text-4xl font-mono">
           <span className="px-2">{timeLeft.days}</span>:<span className="px-2">{timeLeft.hours}</span>:<span className="px-2">{timeLeft.minutes}</span>:<span className="px-2">{timeLeft.seconds}</span>
+        </div>
+        <div className='text-gray-400 pt-3 text-center '>
+          <h4 className=' ease-in duration-250 hover:text-white'>Days elapsed {timeLeft.final-timeLeft.days}</h4>
         </div>
       </div>
     </div>
