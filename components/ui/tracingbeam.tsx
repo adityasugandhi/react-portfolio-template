@@ -49,26 +49,26 @@ export const TracingBeam = ({
   return (
     <motion.div
       ref={ref}
-      className={cn("relative w-fit mx-20 mob:ml-12 h-fit", className)}
+      className={cn("relative w-fit mx-20 mob:ml-15 mob:-mr-8 h-fit", className)}
     >
       <div className="absolute -left-20 md:-left-20 top-3">
         <motion.div
           transition={{
-            duration: 0.2,
-            delay: 0.5,
+            duration: 0.4,
+            delay: 0.2,
           }}
           animate={{
             boxShadow:
               scrollYProgress.get() > 0
                 ? "none"
-                : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                : "rgba(0, 0, 0, 0.24) 0px 4px 9px",
           }}
           className="ml-[30px] mob:ml-[35px] h-6 w-6 mob:h-4 mob:w-4 rounded-full border border-netural-200 shadow-sm flex items-center justify-center"
         >
           <motion.div
             transition={{
-              duration: 0.2,
-              delay: 0.5,
+              duration: 0.5,
+              delay: 0.2,
             }}
             animate={{
               backgroundColor:
@@ -76,7 +76,7 @@ export const TracingBeam = ({
               borderColor:
                 scrollYProgress.get() > 0 ? "white" : "var(--emerald-600)",
             }}
-            className="h-4 w-4  mob:h-2 mob:w-2 rounded-full border border-neutral-300 bg-white"
+            className="h-4 w-4  mob:h-2 mob:w-2 rounded-full border border-neutral-300 bg-white dark:bg-black"
           />
         </motion.div>
         <svg
