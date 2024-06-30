@@ -19,7 +19,7 @@ import data from "../data/portfolio.json";
 import { HoverEffect} from "../components/ui/card-hover-effect.tsx";
 import dynamic from "next/dynamic";
 import Typewriter from "../components/ui/typewriiter.js";
-
+import {TracingBeam} from '../components/ui/tracingbeam.tsx'
 
 
 export default function Home() {
@@ -66,79 +66,80 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-    
-      <Head>
-        <title>{data.name}</title>
-        <meta name="description" content={data.content} />
-      
-      </Head>
-      <SparklesCore
-        id="tsparticlesfullpage"
-        background="transparent"
-        minSize={0.6}
-        maxSize={1.4}
-        particleDensity={100}
-        className="fixed inset-0 z-[-10] pointer-events-none"
-        particleColor={color}
-      />
 
-      <div className="gradient-circle"></div>
-      <div className="gradient-circle-bottom"></div>
-
-      <div className="container mx-auto mb-10">
-        <Header
-          handleWorkScroll={handleWorkScroll}
-          handleAboutScroll={handleAboutScroll}
+      <div>
+        <TracingBeam className="px-2 mob:px-1">
+        <Head>
+          <title>{data.name}</title>
+          <meta name="description" content={data.content} />
+        
+        </Head>
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="fixed inset-0 z-[-10] pointer-events-none"
+          particleColor={color}
         />
-        <div className="laptop:mt-20 mt-10">
-          <div className="mt-5">
-            <h1
-              ref={textOne}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5"
-            >
-              {data.headerTaglineOne}
-            </h1>
-            <h1
-              ref={textTwo}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
-            >
-              {data.headerTaglineTwo}
-            </h1>
-            <h1
-              ref={textThree}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
-            >
-              <Typewriter texts = { data.headerTaglineThree} delay={250}/>
-              <span className="m-3">👨🏻‍💻</span>
-              {/* <TypewriterEffect words = {data.headerTaglineThree}/> */}
-            </h1>
-            <h1
-              ref={textFour}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
-            >
-              {data.headerTaglineFour}
-            </h1>
+
+        <div className="gradient-circle"></div>
+        <div className="gradient-circle-bottom"></div>
+
+        <div className="m-10 mob:m-1">
+          <Header
+            handleWorkScroll={handleWorkScroll}
+            handleAboutScroll={handleAboutScroll}
+          />
+          <div className="laptop:mt-20 mt-10">
+            <div className="mt-5">
+              <h1
+                ref={textOne}
+                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5"
+              >
+                {data.headerTaglineOne}
+              </h1>
+              <h1
+                ref={textTwo}
+                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              >
+                {data.headerTaglineTwo}
+              </h1>
+              <h1
+                ref={textThree}
+                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              >
+                <Typewriter texts = { data.headerTaglineThree} delay={250}/>
+                <span className="m-3">👨🏻‍💻</span>
+                {/* <TypewriterEffect words = {data.headerTaglineThree}/> */}
+              </h1>
+              <h1
+                ref={textFour}
+                className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              >
+                {data.headerTaglineFour}
+              </h1>
+            </div>
+            {!isLoading && <Socials className="pr-2 mt-2 laptop:mt-5" />}
           </div>
-          {!isLoading && <Socials className="pr-2 mt-2 laptop:mt-5" />}
-        </div>
-        <CountdownTimer targetDate={'2024-09-22T23:59:59'}/>
-        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
-          <h1 className="text-4xl text-bold">Projects</h1>
-          <HoverEffect items={data.projects}/>
-          {/* <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
-  {data.projects.map((project) => (
-    <ThreeDCardDemo
-      key={project.id}
-      img={project.youtubeId ? undefined : project.imageSrc} // Only include img if youtubeId is not available
-      name={project.title}
-      description={project.description}
-      youtubeId={project.youtubeId} // Assuming youtubeId is a prop expected by ThreeDCardDemo
-      onClick={() => window.open(project.url)}
-    />
-  ))}
-</div> */}
-  </div>
+          <CountdownTimer targetDate={'2024-09-22T23:59:59'}/>
+          <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
+            <h1 className="text-4xl text-bold">Projects</h1>
+            <HoverEffect items={data.projects}/>
+            {/* <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
+              {data.projects.map((project) => (
+                <ThreeDCardDemo
+                  key={project.id}
+                  img={project.youtubeId ? undefined : project.imageSrc} // Only include img if youtubeId is not available
+                  name={project.title}
+                  description={project.description}
+                  youtubeId={project.youtubeId} // Assuming youtubeId is a prop expected by ThreeDCardDemo
+                  onClick={() => window.open(project.url)}
+                />
+              ))}
+           </div> */}
+    
 
 
 
@@ -171,5 +172,10 @@ export default function Home() {
         <Footer />
       </div>
     </div>
+    </TracingBeam>
+  </div>
+      
+    
+  
   );
-}
+};

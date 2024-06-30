@@ -10,17 +10,17 @@ const Footer = () => {
     <>
       <div className="mt-5 laptop:mt-40 p-2 laptop:p-0 pl-10 mob:pl-2">
         <div>
-          <h1 className="text-2xl mob:p-1 mob:text:4xl text-bold">Contact</h1>
-          <div className="mt-10">
-            <h1 className="mob:text-2xl mob:pl-2 text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl text-bold">
-              LET&apos;S WORK
-            </h1>
-            <h1 className="mob:text-2xl mob:pl-5 text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl text-bold">
-              TOGETHER
-            </h1>
+
+          <div className="mt-5">
+            <h2 className="mob:text-2xl flex justify-center underline underline-offset-5 mob:pl-2 text-3xl tablet:text-6xl  laptop:text-6xl laptopl:text-8xl text-bold">
+             Hire Me!
+            </h2>
+            <div className="flex justify-center p-2">
             <Button className="underline" type="primary" onClick={() => window.location.href = calendarLink}>
-              Schedule a meeting
+              <h1>Schedule a meeting</h1>
             </Button>
+            </div>
+
             <div className="mt-5">
               <Socials />
             </div>
