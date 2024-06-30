@@ -67,8 +67,8 @@ export default function Home() {
 
   return (
 
-      <div>
-        <TracingBeam className="px-2 mob:px-1">
+      
+        <TracingBeam className="px-2 mob:px-0">
         <Head>
           <title>{data.name}</title>
           <meta name="description" content={data.content} />
@@ -87,7 +87,7 @@ export default function Home() {
         <div className="gradient-circle"></div>
         <div className="gradient-circle-bottom"></div>
 
-        <div className="m-10 mob:m-1">
+        <div className="m-10 mob:my-1 mob:-ml-2">
           <Header
             handleWorkScroll={handleWorkScroll}
             handleAboutScroll={handleAboutScroll}
@@ -173,7 +173,7 @@ export default function Home() {
       </div>
     </div>
     </TracingBeam>
-  </div>
+  
       
     
   
