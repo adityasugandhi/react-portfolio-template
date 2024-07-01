@@ -82,3 +82,30 @@ body {
   height: 400px; /* Adjust the height as needed */
   /* Add any other styling you want for the custom class */
 }
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.revolving {
+  animation: spin 2.5s;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 2s ease-out forwards;
+}
+

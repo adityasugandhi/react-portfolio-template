@@ -61,15 +61,6 @@
     },
     {
       "id": "3",
-      "title": "Transforming Minds: Decoding the Magic of Transformer Architecture",
-      "description": "Unlock the mysteries of Transformer architecture in my latest YouTube video! 🚀📚 Join me for a captivating journey into the heart of modern language models. 🔍✨ #TransformerMagic #AIExplained",
-      "imageSrc": "/projects/earth.jpeg",
-      "url": "https://www.youtube.com/watch?v=I7_KOtXMmw4",
-      "youtubeId":"I7_KOtXMmw4"
-
-    },
-    {
-      "id": "4",
       "title": "Maglab - A Magnetic Field Simulation Data Analysis",
       "description": "Unraveling the enigma of an oil sample through cutting-edge mass spectrometry. Deciphered the molecular formulas of the top five abundant compounds, igniting a quest to unveil their true identities. A testament to my passion for unlocking nature's secrets, one spectrum at a time.",
       "imageSrc": "/projects/maglab_at_night.jpeg",

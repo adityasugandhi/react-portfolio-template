@@ -80,38 +80,38 @@ export const HoverEffect = ({
 };
 
 export const Card = ({
-    className,
-    id,
-    children,
-    imageSrc,
-    youtubeId,
-    theme,
-  }: {
-    id?: string;
-    className?: string;
-    children: React.ReactNode;
-    imageSrc?: string;
-    youtubeId?: string;
-    theme: string;
-  }) => {
-    
-    return (
-      <div
-        className={cn(
-          `rounded-2xl h-full w-full p-4 overflow-hidden group-hover:border-slate-600 relative z-20`,
-          {
-            'bg-black': theme === 'dark',
-            'bg-white-100': theme !== 'dark',
-            'bg-opacity-50': theme !== 'dark',
-          },
-          className
-        )}
-      >
-     {youtubeId ? (
+  className,
+  children,
+  imageSrc,
+  youtubeId,
+  theme,
+}: {
+  className?: string;
+  children: React.ReactNode;
+  imageSrc?: string;
+  youtubeId?: string;
+  theme: string;
+}) => {
+  return (
+    <div
+      className={cn(
+        `rounded-2xl overflow-hidden group-hover:border-slate-600 relative z-20`,
+        {
+          'bg-black': theme === 'dark',
+          'bg-white-100': theme !== 'dark',
+          'bg-opacity-50': theme !== 'dark',
+        },
+        className
+      )}
+    >
+      {youtubeId ? (
         // If youtubeId is provided, render YouTube video
-        <div className="mb-4 rounded-2xl">
-  <YouTube videoId={youtubeId} className="rounded-xl w-auto h-auto" /> {/* Render YouTube video component */}
-</div>
+        <div className="relative h-0 pb-9/16">
+          <YouTube
+            videoId={youtubeId}
+            className="absolute top-0 left-0 w-full h-full"
+          />
+        </div>
       ) : imageSrc ? (
         // If youtubeId is not provided and imageSrc is available, display image
         <div className="mb-4">
@@ -121,16 +121,16 @@ export const Card = ({
             className="w-full h-auto rounded-2xl"
             width={1024}
             height={1024}
-            priority = {true}
+            priority={true}
           />
         </div>
       ) : null}
-        <div className="relative z-50">
-          <div className="p-4">{children}</div>
-        </div>
+      <div className="relative z-50">
+        <div className="p-4">{children}</div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export const CardTitle = ({
   className,
