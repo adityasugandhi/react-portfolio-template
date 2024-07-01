@@ -87,7 +87,7 @@ export default function Home() {
         </div>
       ) : (
         <div className= "opacity-0 animate-fade-in">
-          <TracingBeam className="px-2 mob:px-0">
+          <TracingBeam className="px-2 mob:px-0 ">
             <Head>
               <title>{data.name}</title>
               <meta name="description" content={data.content} />
