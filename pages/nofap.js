@@ -8,8 +8,8 @@ const Nofap = () => {
                 <p className="text-lg text-gray-600">Stay focused and avoid addiction!</p>
             </div>
             <ul className="list-disc space-y-2 mt-4">
-                <li>Bhai, focus on yourself, this won't work!</li>
-                <li>You'll face difficulties in the future.</li>
+                <li>Bhai, focus on yourself, this won&apos;t work!</li>
+                <li>You&apos;ll face difficulties in the future.</li>
                 <li>Try to divert your mind!</li>
             </ul>
             <div className="mt-8">
@@ -28,7 +28,7 @@ const Nofap = () => {
                 </ul>
             </div>
             <h1 className="text-xl font-bold text-red-600 mt-8 text-center">
-                Please don't ruin your life like this! You'll face many problems in the future.
+                Please don&apos;t ruin your life like this! You&apos;ll face many problems in the future.
             </h1>
         </div>
     );
