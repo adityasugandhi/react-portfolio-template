@@ -1,6 +1,8 @@
 // components/NetlifyIdentityWidget.js
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import Script from 'next/script'
+ 
 
 const NetlifyIdentityWidget = () => {
   useEffect(() => {
@@ -10,9 +12,9 @@ const NetlifyIdentityWidget = () => {
   }, []);
 
   return (
-    <Helmet>
-      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    </Helmet>
+    
+      <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></Script>
+    
   );
 };
 
